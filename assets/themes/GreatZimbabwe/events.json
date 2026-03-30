@@ -1,0 +1,36 @@
+{
+  "triggers": [
+    {
+      "event_id": "ancestral_memory_9_1",
+      "trigger_type": "scene_enter",
+      "condition": "script_9_1",
+      "probability": 1.0,
+      "narrative_description": "The ancestral memory floods your mind, strengthening your resonance.",
+      "result": {
+        "mana": 20
+      }
+    },
+    {
+      "event_id": "ancestral_memory_9_2",
+      "trigger_type": "scene_enter",
+      "condition": "script_9_2",
+      "probability": 1.0,
+      "narrative_description": "The midnight quiet allows for deep spiritual synchronization.",
+      "result": {
+        "mana": 20
+      }
+    },
+    {
+      "event_id": "wraith_battle_attrition",
+      "trigger_type": "scene_enter",
+      "condition": "script_10",
+      "probability": 1.0,
+      "narrative_description": "The battle with the Data-Wraiths was spiritually exhausting.",
+      "result": {
+        "mana": -10,
+        "hp": -20,
+        "bullet": -2
+      }
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "player_state": {
+    "hp": 90,
+    "mana": 20,
+    "bullet": 5,
+    "credits": 1000,
+    "inventory": []
+  },
+  "current_location": "script_1",
+  "recent_history": [
+    {
+      "action": "yes i will",
+      "result": "Yes, I will merge with the Mother-Tree to save Eko."
+    },
+    {
+      "action": "2",
+      "result": "Reach out to other Cyber-Griots for assistance"
+    },
+    {
+      "action": "yes ",
+      "result": "yes, merging with the Mother-Tree, Eko's systems begin to stabilize."
+    },
+    {
+      "action": "1",
+      "result": "Investigate the stabilized systems"
+    }
+  ],
+  "turn_count": 5,
+  "timestamp": 1774871188.446869
+}

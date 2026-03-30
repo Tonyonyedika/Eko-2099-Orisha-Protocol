@@ -1,0 +1,211 @@
+{
+  "initial_scene_id": "script_1",
+  "player": {
+    "hp": 100,
+    "mana": 50,
+    "bullet": 5,
+    "credits": 1000
+  },
+  "scenes": {
+    "script_1": {
+      "story_ref": "script_1",
+      "is_end": false,
+      "options": [
+        {
+          "id": 1,
+          "text": "Accept the Data-Chip",
+          "next_scene_id": "script_2"
+        },
+        {
+          "id": 2,
+          "text": "Refuse the mission",
+          "next_scene_id": "script_3"
+        }
+      ]
+    },
+    "script_2": {
+      "story_ref": "script_2",
+      "is_end": false,
+      "options": [
+        {
+          "id": 1,
+          "text": "Take the Danfo-Rail (Fast, low Ase)",
+          "next_scene_id": "script_4"
+        },
+        {
+          "id": 2,
+          "text": "Walk through Balogun Market (Slow, high Ase)",
+          "next_scene_id": "script_5"
+        }
+      ]
+    },
+    "script_3": {
+      "story_ref": "script_3",
+      "is_end": true,
+      "options": []
+    },
+    "script_4": {
+      "story_ref": "script_4",
+      "is_end": false,
+      "options": [
+        {
+          "id": 1,
+          "text": "Investigate the data-streams alone",
+          "next_scene_id": "script_7"
+        },
+        {
+          "id": 2,
+          "text": "Focus on a standard system reset",
+          "next_scene_id": "script_8"
+        }
+      ]
+    },
+    "script_5": {
+      "story_ref": "script_5",
+      "is_end": false,
+      "options": [
+        {
+          "id": 1,
+          "text": "Enter the Under-Bridge cable-runs",
+          "next_scene_id": "script_9_1"
+        },
+        {
+          "id": 2,
+          "text": "Climb the Sky-Walk antennae",
+          "next_scene_id": "script_6"
+        }
+      ]
+    },
+    "script_6": {
+      "story_ref": "script_6",
+      "is_end": true,
+      "options": []
+    },
+    "script_7": {
+      "story_ref": "script_7",
+      "is_end": false,
+      "options": [
+        {
+          "id": 1,
+          "text": "Ignore the virus for now",
+          "next_scene_id": "script_8"
+        },
+        {
+          "id": 2,
+          "text": "Return at midnight",
+          "next_scene_id": "script_9_2"
+        }
+      ]
+    },
+    "script_8": {
+      "story_ref": "script_8",
+      "is_end": true,
+      "options": []
+    },
+    "script_9_1": {
+      "story_ref": "script_9_1",
+      "is_end": false,
+      "options": [
+        {
+          "id": 1,
+          "text": "Left Datastream (Static)",
+          "next_scene_id": "script_11"
+        },
+        {
+          "id": 2,
+          "text": "Center Datastream (The Shango Tree)",
+          "next_scene_id": "script_12"
+        },
+        {
+          "id": 3,
+          "text": "Right Datastream (Static)",
+          "next_scene_id": "script_11"
+        }
+      ]
+    },
+    "script_9_2": {
+      "story_ref": "script_9_2",
+      "is_end": false,
+      "options": [
+        {
+          "id": 1,
+          "text": "Left Datastream (Static)",
+          "next_scene_id": "script_11"
+        },
+        {
+          "id": 2,
+          "text": "Center Datastream (The Shango Tree)",
+          "next_scene_id": "script_12"
+        },
+        {
+          "id": 3,
+          "text": "Right Datastream (Static)",
+          "next_scene_id": "script_11"
+        }
+      ]
+    },
+    "script_11": {
+      "story_ref": "script_11",
+      "is_end": false,
+      "options": [
+        {
+          "id": 1,
+          "text": "Flee back to Obalende",
+          "next_scene_id": "script_13"
+        },
+        {
+          "id": 2,
+          "text": "Fight the Glitched-Ancestors",
+          "next_scene_id": "script_10"
+        }
+      ]
+    },
+    "script_10": {
+      "story_ref": "script_10",
+      "is_end": false,
+      "options": [
+        {
+          "id": 1,
+          "text": "Go back to the junction",
+          "next_scene_id": "script_9_1"
+        },
+        {
+          "id": 2,
+          "text": "Log-out and retreat",
+          "next_scene_id": "script_13"
+        }
+      ]
+    },
+    "script_12": {
+      "story_ref": "script_12",
+      "is_end": false,
+      "options": [
+        {
+          "id": 1,
+          "text": "Accept the Mother-Tree's offer",
+          "next_scene_id": "ai_takeover_accept_offer"
+        },
+        {
+          "id": 2,
+          "text": "Reject the offer and seal the server",
+          "next_scene_id": "ai_takeover_reject_offer"
+        }
+      ]
+    },
+    "script_13": {
+      "story_ref": "script_13",
+      "is_end": true,
+      "options": []
+    },
+    "ai_takeover_accept_offer": {
+      "story_ref": "script_accept_offer",
+      "is_end": true,
+      "options": []
+    },
+    "ai_takeover_reject_offer": {
+      "story_ref": "script_reject_offer",
+      "is_end": true,
+      "options": []
+    }
+  }
+}

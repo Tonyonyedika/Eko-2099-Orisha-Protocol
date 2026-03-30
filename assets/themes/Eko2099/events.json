@@ -1,0 +1,36 @@
+{
+  "triggers": [
+    {
+      "event_id": "market_ase_boost",
+      "trigger_type": "scene_enter",
+      "condition": "script_9_1",
+      "probability": 1.0,
+      "narrative_description": "The vibrant energy of Balogun Market flows through your neural-link, boosting your Ase.",
+      "result": {
+        "mana": 20
+      }
+    },
+    {
+      "event_id": "midnight_sync_boost",
+      "trigger_type": "scene_enter",
+      "condition": "script_9_2",
+      "probability": 1.0,
+      "narrative_description": "The midnight quiet of the bridge allows for a deep sync with the Orisha Protocol.",
+      "result": {
+        "mana": 20
+      }
+    },
+    {
+      "event_id": "ancestor_battle_attrition",
+      "trigger_type": "scene_enter",
+      "condition": "script_10",
+      "probability": 1.0,
+      "narrative_description": "The digital battle with the Glitched-Ancestors was taxing on your Bio-Link.",
+      "result": {
+        "mana": -10,
+        "hp": -20,
+        "bullet": -2
+      }
+    }
+  ]
+}

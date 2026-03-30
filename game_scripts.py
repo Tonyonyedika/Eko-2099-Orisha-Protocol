@@ -1,0 +1,370 @@
+"""
+Hardcoded script tree for the Post-Magic RPG (Scripts 1-12).
+AI takes over after Script 12. Endings: "end" nodes; "ai_takeover" hands off to AI.
+"""
+
+# Script content and branching. Each option is (label, next_script_id).
+# next_script_id can be "end" (game over, use ending_id), "ai_takeover", or another script key.
+# Stat deltas applied when entering a script (optional): {"HP": -20, "Mana": 10, "Bullets": -2}
+SCRIPTS = {
+    "1": {
+        "story": (
+            "A century ago, the last elemental Dragon was slain, and the world's mana pools dried up. "
+            "Humanity replaced spells with steam and gears. In the city of Orizon, magic is no longer a wonder—it's a pollutant. "
+            "You are a \"Disenchanter\"—an important role that blends the tasks of an exorcist and a mechanic, "
+            "cleaning \"the echoes\" (magical residues) from the city and resolving mechanical defects.\n\n"
+            "The Maintenance Hub, Sector 4.\n"
+            "You sit at your workbench. The room is heavy with the smell of ozone and burnt oil. "
+            "Your mana meter flickers—a steady, low hum of background pollution. Your supervisor, "
+            "a man who smells of cheap tobacco and machine oil, slams a grease-stained work order onto your desk.\n\n"
+            "\"Northside's screaming,\" he grunts. \"Pressure is bottoming out in the main pipes. "
+            "The locals say the pipes are murmuring. Probably just some dead sprite caught in the intake. "
+            "Go down there, fix the pipes, and clear the echoes. And keep your ears plugged—those sounds will rot your brain.\""
+        ),
+        "options": [
+            ("I'm on it. Just another day in the pipes.", "2"),
+            ("Find someone else. I've had enough of the 'screaming' for one week.", "3"),
+        ],
+        "stat_delta": None,
+    },
+    "2": {
+        "story": (
+            "You gather your gear. The alchemy rifle feels heavy on your shoulder, and the sorcerer's ring cold on your finger. "
+            "You look at the work order. Northside is a maze of high-pressure steam and low-life shadows."
+        ),
+        "options": [
+            ("I'm going to need a crew for this. Tell the supervisor to allocate more people.", "4"),
+            ("I'll handle it solo. Fewer witnesses, fewer problems.", "5"),
+        ],
+        "stat_delta": None,
+    },
+    "3": {
+        "story": (
+            "You push the work order back across the desk. \"Find someone else. I've had enough of the 'screaming' for one week.\"\n\n"
+            "The supervisor grunts, chewing on his cigar. \"Suit yourself. If you'd rather grease the primary pistons in Sector 1 "
+            "than hunt ghosts, that's your job now.\"\n\n"
+            "Months later, as you huddle in a doorway, you hear a rumor that Sector 4 vanished overnight—swallowed by a silver fire "
+            "that the city's steam-works couldn't quench. You wonder, briefly, if you could have stopped it."
+        ),
+        "options": [],
+        "ending_id": "the_quiet_life",
+        "ending_title": "The Quiet Life",
+        "stat_delta": None,
+    },
+    "4": {
+        "story": (
+            "You arrive at the main junction with two other Disenchanters. The reinforced iron pipes are buckled and cracked, "
+            "hissing clouds of industrial gas. Your colleagues cover their ears, cursing the \"head-splitting screech\" of the leaking steam.\n\n"
+            "But to you, the sound isn't a screech. It's a polyphonic call, pulsing in time with your heart. "
+            "\"Come closer,\" a voice whispers through the steam. \"The iron is a cage. Set me free.\" "
+            "You see faint, silver runes glowing on the floor, leading deeper into the dark."
+        ),
+        "options": [
+            ("Tell your colleagues about the voice and the runes. \"Do you hear that? Follow me, I think there's something else down here.\"", "6"),
+            ("Stay silent and watch the runes alone.", "7"),
+        ],
+        "stat_delta": None,
+    },
+    "5": {
+        "story": (
+            "You stand alone before the cracked pipes. The gas creates a hazy, silver fog. The vibration in your boots is intoxicating. "
+            "The runes on the floor point toward a hidden gap in the masonry—a path into the deeper sewerage that isn't on any map."
+        ),
+        "options": [
+            ("Step into the darkness, following the silver glow.", "9_1"),
+            ("Focus only on the pipes. Ignore the whispers.", "8"),
+        ],
+        "stat_delta": None,
+    },
+    "6": {
+        "story": (
+            "You lead your colleagues down into the forgotten cavern. Together, you find the Dragon Egg. "
+            "Its pearlescent heat illuminates the cavern, reflecting off their brass goggles.\n\n"
+            "\"Do you know how much power is in this thing?\" one colleague whispers, his eyes wide with greed. "
+            "You and your colleagues report the find to the City Council. Within the week, the egg is encased in lead and hooked "
+            "to the city's main turbine. Its magic is harvested to fuel Orizon for another decade. "
+            "You receive a promotion and a medal, but every night, you hear the muffled screaming of the egg through the city's pipes."
+        ),
+        "options": [],
+        "ending_id": "the_citys_fuel",
+        "ending_title": "The City's Fuel",
+        "stat_delta": None,
+    },
+    "7": {
+        "story": (
+            "You decide to shut your mouth and keep the mysterious words to yourself. What will you do with the odd pleading you heard?"
+        ),
+        "options": [
+            ("Ignore the sound.", "8"),
+            ("Return at night when no one is around.", "9_2"),
+        ],
+        "stat_delta": None,
+    },
+    "8": {
+        "story": (
+            "You tighten the bolts, weld the cracks, and vent the gas. The \"screaming\" stops, replaced by the dull, mindless thud of steam. "
+            "You go home, collect your pay, and sleep a dreamless sleep. The magic in your ring grows dimmer every day, until finally, "
+            "it is nothing more than a piece of scrap metal. The world remains gray, loud, and dying."
+        ),
+        "options": [],
+        "ending_id": "a_job_well_done",
+        "ending_title": "A Job Well Done",
+        "stat_delta": None,
+    },
+    "9_1": {
+        "story": (
+            "The melody in the pipes is a physical pull, tugging at the very marrow of your bones. You slip through a jagged crack in the reinforced iron.\n\n"
+            "As you descend, the air grows thick with a shimmering, silver mist—magical residue. You hold the ring into the thickest clouds "
+            "of residue and watch the silver mist spiral into the ring's central gem. A rush of heat travels up your arm and into your chest, "
+            "clearing the soot from your lungs (+20 Mana).\n\n"
+            "With your senses sharpened and your ring humming with power, you face the split in the road."
+        ),
+        "options": [
+            ("A damp, narrow path smelling of sulfur and wet stone.", "11"),
+            ("A silent, low-ceilinged tunnel leading deeper into the bedrock.", "12"),
+            ("A wide, echoing gallery filled with rusted machinery.", "11"),
+        ],
+        "stat_delta": {"Mana": 20},
+    },
+    "9_2": {
+        "story": (
+            "You return under the cover of darkness while Orizon's engines sleep. As you follow the runes, stepping deeper into the sewer, "
+            "the air grows thick with a shimmering, silver mist—magical residue. You hold the ring into the thickest clouds of residue "
+            "and watch the silver mist spiral into the ring's central gem. A rush of heat travels up your arm and into your chest, "
+            "clearing the soot from your lungs (+20 Mana). The air is thick with the scent of ozone and ancient rain. "
+            "You reach a junction where the sewer splits into three distinct tunnels."
+        ),
+        "options": [
+            ("A damp, narrow path smelling of sulfur and wet stone.", "11"),
+            ("A silent, low-ceilinged tunnel leading deeper into the bedrock.", "12"),
+            ("A wide, echoing gallery filled with rusted machinery.", "11"),
+        ],
+        "stat_delta": {"Mana": 20},
+    },
+    "9_return": {
+        "story": (
+            "You return to the junction where the sewer splits into three distinct tunnels. "
+            "The silver mist still hangs in the air. Which path will you take now?"
+        ),
+        "options": [
+            ("A damp, narrow path smelling of sulfur and wet stone.", "11"),
+            ("A silent, low-ceilinged tunnel leading deeper into the bedrock.", "12"),
+            ("A wide, echoing gallery filled with rusted machinery.", "11"),
+        ],
+        "stat_delta": None,
+    },
+    "10": {
+        "story": (
+            "The \"Echoes\" emerge from the gloom—shambling corpses of former sewer workers, their skin translucent and glowing "
+            "with a sickly violet rot. They don't scream; they hum a discordant, terrifying note.\n\n"
+            "You level your Alchemy Rifle and squeeze the trigger, blowing a hole through the lead corpse. As the others swarm around you, "
+            "you unleash a Fireball followed by a jagged bolt of Lightning. Before they dissolve, one of the corpses lunges with a freezing touch, "
+            "and their discordant humming vibrates painfully in your skull. They eventually vanish into shimmering mist, "
+            "leaving you breathless in the ozone-heavy air.\n\n"
+            "[Victory: Spent 20 Mana, 2 Bullets, lost 20 HP. Gained 10 Mana from the remains.]"
+        ),
+        "options": [
+            ("Return to the split road to investigate the other paths.", "9_return"),
+            ("You've seen enough. This isn't worth your life.", "13"),
+        ],
+        "stat_delta": {"HP": -20, "Mana": -10, "Bullets": -2},
+    },
+    "11": {
+        "story": (
+            "As you step forward, the shadows begin to knit together. \"Echoes\"—the magic-animated corpses of workers who died in the pipes—"
+            "stagger toward you. Their eyes glow with a sickly violet light, and their movements are jerky, like broken puppets."
+        ),
+        "options": [
+            ("Retreat and head back to the safety of the surface.", "13"),
+            ("Draw your alchemy rifle and channel the ring.", "10"),
+        ],
+        "stat_delta": None,
+    },
+    "12": {
+        "story": (
+            "You step through a curtain of vines and leave Orizon behind. You've found a hidden oasis deep in the earth. "
+            "Glowing ferns light up the cave, and flowers of light grow over rusted gears. The air here is fresh and sweet, "
+            "free of the city's smoke.\n\n"
+            "In the center sits the Dragon Egg. It rests on a bed of soft moss, pulsing like a living sun, singing a beautiful, majestic song.\n\n"
+            "As you approach, your Disenchanter's tools begin to glow. \"The machines are starving the world,\" the egg speaks directly "
+            "into your mind. \"They grind the soul of the earth into smoke. Be my Guardian. Carry me from this tomb, and I will grant you "
+            "the Fire that once moved the stars. Together, we will dismantle their engines and bring the Dawn of the New Magic.\""
+        ),
+        "options": [
+            ("Accept the offer: Become the Guardian.", "ai_takeover_dawn"),
+            ("Reject the offer: This is a threat to the city. It must be destroyed.", "ai_takeover_battle"),
+        ],
+        "stat_delta": None,
+    },
+    "13": {
+        "story": (
+            "You turn your back on the magic, the monsters, and the mystery. You climb out of the manhole, seal the lid, and walk into the rain. "
+            "You leave your tools in an alleyway and hop the first rail-car out of Orizon. Some secrets are better left buried in the dark."
+        ),
+        "options": [],
+        "ending_id": "the_fugitive",
+        "ending_title": "The Fugitive",
+        "stat_delta": None,
+    },
+}
+
+import json
+import os
+
+# World and plot summary for the AI (injected into the prompt).
+GAME_WORLD_SUMMARY = """
+## World: "Eko 2099: The Orisha Protocol" (Nigeria Afrofuturism)
+- Lagos (Eko) is a futuristic mega-city built on solar-rafts.
+- The "Orisha Protocol" is an ancestral AI network powering the city.
+- You are a "Cyber-Griot," a technician who communicates with the Orishas.
+- You've navigated the Obalende hubs and reached the Core of the Shango Server (The Mother-Tree).
+- The Mother-Tree offered a choice: merge with it to save Eko, or seal it to protect human agency.
+"""
+
+def format_system_prompt(memory_path="saves/memory.json"):
+    """
+    Reads memory.json and formats the system prompt for Llama 3.1.
+    """
+    if not os.path.exists(memory_path):
+        return "<|start_header_id|>system<|end_header_id|>\n\nMemory file not found. Assume default start."
+
+    with open(memory_path, "r") as f:
+        memory = json.load(f)
+
+    stats = memory.get("player_state", {})
+    hp = stats.get("hp", 100)
+    mana = stats.get("mana", 50)
+    bullets = stats.get("bullet", 5)
+    credits = stats.get("credits", 50)
+
+    history = memory.get("recent_history", [])
+    history_lines = []
+    for entry in history[-5:]: # Last 5 entries
+        action = entry.get("action", "Unknown")
+        result = entry.get("result", "Unknown")
+        history_lines.append(f"- Action: {action}\n  Result: {result}")
+    
+    short_term_history = "\n".join(history_lines)
+
+    prompt = f"""<|start_header_id|>system<|end_header_id|>
+
+You are the AI Ancestral Wisdom (Game Master) for "Eko 2099," an Afrofuturist Nigerian RPG. 
+
+{GAME_WORLD_SUMMARY}
+
+## Player Status
+- HP: {hp}
+- Mana: {mana}
+- Bullets: {bullets}
+- Credits: {credits}
+
+## Recent History
+{short_term_history}
+
+Your goal is to continue the story based on the player's choices. 
+Maintain the vibrant, technological, and spiritually resonant atmosphere of futuristic Lagos. 
+Use Nigerian-inspired imagery (solar danfos, neon Yoruba symbols, spiritual AI).
+Be concise but evocative. Use a mix of formal English and occasional Nigerian Pidgin for flavor.
+<|eot_id|>"""
+    
+    return prompt
+
+def build_dynamic_prompt(player_stats: dict, custom_input: str, recent_history: list, target_scene_text: str, target_scene_id: str, current_turn: int, max_turns: int):
+    """
+    Builds the system prompt for dynamic node generation, enforcing Semantic Re-entry, 
+    Turn Budget, and Stat Consequences.
+    """
+    schema_template = {
+        "id": "dynamic_[uuid]",
+        "text": "[Narrative text outcome]",
+        "is_end": False,
+        "reached_target_plot": False,
+        "stat_changes": {
+            "hp": 0,
+            "mana": 0,
+            "bullet": 0,
+            "credits": 0
+        },
+        "options": [
+            { "id": 1, "text": "[Choice 1]", "next_scene_id": "dynamic_await" },
+            { "id": 2, "text": "[Choice 2]", "next_scene_id": "dynamic_await" }
+        ]
+    }
+
+    # Climax Override (Global Turn Budget)
+    climax_override = ""
+    if current_turn >= max_turns:
+        climax_override = (
+            "\nCRITICAL INSTRUCTION: The game has reached its temporal limit. You must conclude the narrative immediately in this turn. "
+            "Write a final, definitive ending (either a logical Victory or Tragedy) based on the player's current health, inventory, and recent actions. "
+            "You MUST set \"is_end\": true in your JSON output, and return an empty list [] for \"options\"."
+        )
+
+    # Semantic Re-entry Directive
+    steering_instruction = ""
+    if target_scene_text:
+        steering_instruction = (
+            f"\nYour goal as the Game Master is to steer the story. You have two choices:\n"
+            f"1. OPTIONAL RE-RAILING: Steer the narrative back toward this event: [{target_scene_text}]. "
+            "If you do this, set \"reached_target_plot\": true.\n"
+            "2. AUTONOMOUS ENDING: If the player's action logically leads to a final conclusion (Victory or Tragedy), "
+            "you may end the story immediately. If you do this, set \"is_end\": true.\n"
+            "3. SANDBOX: If neither above fits, continue the sandbox story, generate 2 options, and set \"reached_target_plot\": false."
+        )
+    
+    # Stat Consequences Directive
+    stat_consequences = (
+        "\n## CONSEQUENCES:\n"
+        "You must evaluate the outcome of the player's custom action. If they lose focus or bio-integrity, deduct Life-Force (hp). "
+        "If they use spiritual energy, deduct Ase (mana). If they use tech-nodes, deduct a Neural-Node (bullet). If they find Naira, add Naira (credits). "
+        "Reflect these changes as positive or negative INTEGERS in the \"stat_changes\" JSON object. "
+        "If no stats change, leave the values at 0. DO NOT return nulls or non-integers."
+    )
+
+    history_text = "\n".join([f"- {h['action']} -> {h['result']}" for h in recent_history[-5:]])
+
+    # Rules for ID management
+    id_rules = (
+        "\n## ID MANAGEMENT RULES:\n"
+        "1. For the current scene 'id': generate a unique string starting with 'dynamic_'.\n"
+        "2. For each option's 'next_scene_id':\n"
+        "   - If 'reached_target_plot' is true, set it to the target_scene_id provided below.\n"
+        "   - Otherwise, you MUST set it to exactly 'ai_sandbox_node'. DO NOT use any other ID, especially not '1', 'script_1', or 'next_node'.\n"
+    )
+
+    prompt = f"""<|start_header_id|>system<|end_header_id|>
+
+    You are the AI Ancestral Wisdom (Game Master) for "Eko 2099." 
+    You must return only a valid JSON object matching the schema below.
+
+    ## JSON Schema Template:
+    {json.dumps(schema_template, indent=2)}
+
+    ## Rules:
+    1. "text": Incorporate action: "{custom_input}". Max 75 words. 
+       **CRITICAL: You must describe a unique, new outcome that progresses the story. DO NOT repeat the narrative from the recent history.**
+    2. "options": You MUST provide exactly 2 options unless "is_end" is true. 
+ 
+    3. "reached_target_plot": Set true only if the player has been successfully re-railed.
+    {climax_override}
+    {steering_instruction}
+    {id_rules}
+    {stat_consequences}
+
+    ## Player Context:
+    Stats: Life-Force={player_stats.get('hp')}, Ase={player_stats.get('mana')}, Neural-Nodes={player_stats.get('bullet')}, Naira={player_stats.get('credits')}
+    Turns: {current_turn}/{max_turns}
+    Target Scene ID (if any): {target_scene_id or "None"}
+    Recent History:
+    {history_text}
+
+    ## Environment:
+    {GAME_WORLD_SUMMARY}
+    <|eot_id|>"""
+    return prompt
+
+def get_script(script_id):
+    return SCRIPTS.get(script_id)
+
+def get_initial_script_id():
+    return "1"

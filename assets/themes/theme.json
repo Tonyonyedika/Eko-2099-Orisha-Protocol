@@ -1,0 +1,106 @@
+{
+    "defaults": {
+        "font": {
+            "name": "arial",
+            "size": "18"
+        }
+    },
+    "panel": {
+        "colours": {
+            "dark_bg": "#191919ee",
+            "normal_border": "#FFD700aa"
+        }
+    },
+    "text_box": {
+        "colours": {
+            "dark_bg": "#121212ee",
+            "normal_text": "#FFD700",
+            "normal_border": "#FFD70088",
+            "link_text": "#FFD700",
+            "link_hover": "#ffffff",
+            "link_selected": "#ffffff"
+        },
+        "font": {
+            "name": "arial",
+            "size": "22",
+            "antialiased": "1"
+        },
+        "bold_font": {
+            "name": "arial",
+            "size": "22",
+            "bold": "1",
+            "antialiased": "1"
+        },
+        "misc": {
+            "padding": "25, 25",
+            "link_normal_underline": "0",
+            "link_hover_underline": "1",
+            "line_spacing": "1.1"
+        }
+    },
+    "button": {
+        "colours": {
+            "normal_bg": "#191919",
+            "hovered_bg": "#333333",
+            "active_bg": "#FFD700",
+            "normal_text": "#FFD700",
+            "hovered_text": "#ffffff",
+            "normal_border": "#FFD70088",
+            "hovered_border": "#FFD700"
+        },
+        "font": {
+            "name": "arial",
+            "size": "16",
+            "bold": "1"
+        }
+    },
+    "label": {
+        "colours": {
+            "normal_text": "#FFD700"
+        },
+        "font": {
+            "name": "arial",
+            "size": "22",
+            "bold": "1"
+        }
+    },
+    "text_entry_line": {
+        "colours": {
+            "normal_bg": "#191919",
+            "normal_text": "#FFD700",
+            "normal_border": "#FFD70088",
+            "selected_border": "#FFD700"
+        }
+    },
+    "hud_panel": {
+        "prototype": "panel",
+        "colours": {
+            "dark_bg": "#191919cc",
+            "normal_border": "#00000000"
+        }
+    },
+    "log_box": {
+        "prototype": "text_box",
+        "colours": {
+            "dark_bg": "#121212cc",
+            "normal_border": "#FFD70044"
+        },
+        "font": {
+            "name": "arial",
+            "size": "16"
+        },
+        "misc": {
+            "padding": "10, 15"
+        }
+    },
+    "@floating_note": {
+        "prototype": "text_box",
+        "colours": {
+            "dark_bg": "#00000000",
+            "normal_border": "#00000000"
+        },
+        "misc": {
+            "padding": "0, 0"
+        }
+    }
+}
